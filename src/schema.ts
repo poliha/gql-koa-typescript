@@ -3,6 +3,7 @@ import { gql } from 'apollo-server-koa';
 const userSchema = gql`
   type Query {
     user(id: Int!): User
+    allUsers: [User]
   }
 
   type User {

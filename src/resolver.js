@@ -4,6 +4,9 @@ var datastore_1 = require("./datastore");
 var userQuery = function (_, args) {
     return args.id;
 };
+var allUsersQuery = function () {
+    return new Array(10).fill(0).map(function (_, index) { return index; });
+};
 var UserResolver = {
     age: function (id) {
         var user = datastore_1.getUserByIndex(id);
@@ -26,4 +29,7 @@ var UserResolver = {
         return user.name;
     },
 };
-exports.default = { Query: { user: userQuery }, User: UserResolver };
+exports.default = {
+    Query: { user: userQuery, allUsers: allUsersQuery },
+    User: UserResolver,
+};

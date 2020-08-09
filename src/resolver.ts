@@ -5,6 +5,10 @@ const userQuery = (_: any, args: resolverArg) => {
   return args.id;
 };
 
+const allUsersQuery = () => {
+  return new Array(10).fill(0).map((_, index) => index);
+};
+
 const UserResolver = {
   age: (id: number) => {
     const user = getUserByIndex(id);
@@ -28,4 +32,7 @@ const UserResolver = {
   },
 };
 
-export default { Query: { user: userQuery }, User: UserResolver };
+export default {
+  Query: { user: userQuery, allUsers: allUsersQuery },
+  User: UserResolver,
+};
