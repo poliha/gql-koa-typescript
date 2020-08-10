@@ -1,15 +1,15 @@
 import { getUserByIndex } from './datastore';
 import { resolverArg } from './interfaces';
 
-const userQuery = (_: any, args: resolverArg) => {
+const userQueryResolver = (_: any, args: resolverArg) => {
   return args.id;
 };
 
-const allUsersQuery = () => {
+const allUsersQueryResolver = () => {
   return new Array(10).fill(0).map((_, index) => index);
 };
 
-const UserResolver = {
+const UserTypeResolver = {
   age: (id: number) => {
     const user = getUserByIndex(id);
     return user.age;
@@ -33,6 +33,6 @@ const UserResolver = {
 };
 
 export default {
-  Query: { user: userQuery, allUsers: allUsersQuery },
-  User: UserResolver,
+  Query: { user: userQueryResolver, allUsers: allUsersQueryResolver },
+  User: UserTypeResolver,
 };
