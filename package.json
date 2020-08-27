@@ -13,6 +13,7 @@
   "dependencies": {
     "apollo-server-koa": "^2.16.1",
     "casual": "^1.6.2",
+    "dataloader": "^2.0.0",
     "graphql": "^15.3.0",
     "koa": "^2.13.0"
   },

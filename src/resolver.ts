@@ -1,4 +1,3 @@
-import { getUserByIndex } from './datastore';
 import { resolverArg } from './interfaces';
 
 const userQueryResolver = (_: any, args: resolverArg) => {
@@ -10,24 +9,24 @@ const allUsersQueryResolver = () => {
 };
 
 const UserTypeResolver = {
-  age: (id: number) => {
-    const user = getUserByIndex(id);
+  age: async (id: number, _: any, ctx: any) => {
+    const user = await ctx.loaders.getUserByIndex.load(id);
     return user.age;
   },
-  email: (id: number) => {
-    const user = getUserByIndex(id);
+  email: async (id: number, _: any, ctx: any) => {
+    const user = await ctx.loaders.getUserByIndex.load(id);
     return user.email;
   },
-  hobbies: (id: number) => {
-    const user = getUserByIndex(id);
+  hobbies: async (id: number, _: any, ctx: any) => {
+    const user = await ctx.loaders.getUserByIndex.load(id);
     return user.hobbies;
   },
-  id: (id: number) => {
-    const user = getUserByIndex(id);
+  id: async (id: number, _: any, ctx: any) => {
+    const user = await ctx.loaders.getUserByIndex.load(id);
     return user.id;
   },
-  name: (id: number) => {
-    const user = getUserByIndex(id);
+  name: async (id: number, _: any, ctx: any) => {
+    const user = await ctx.loaders.getUserByIndex.load(id);
     return user.name;
   },
 };

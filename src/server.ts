@@ -2,6 +2,7 @@ import { ApolloServer } from 'apollo-server-koa';
 import Koa from 'koa';
 import typeDefs from './schema';
 import resolvers from './resolver';
+import context from './context';
 
 const server = new ApolloServer({
   debug: true,
@@ -9,6 +10,7 @@ const server = new ApolloServer({
   tracing: true,
   resolvers,
   typeDefs,
+  context,
 });
 
 const app = new Koa();
